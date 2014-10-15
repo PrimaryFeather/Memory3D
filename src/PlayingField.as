@@ -1,14 +1,16 @@
 package
 {
     import starling.animation.Juggler;
+    import starling.animation.Transitions;
     import starling.display.Sprite;
+    import starling.display.Sprite3D;
     import starling.events.Event;
     import starling.events.Touch;
     import starling.events.TouchEvent;
     import starling.events.TouchPhase;
     import starling.textures.Texture;
     
-    public class PlayingField extends Sprite
+    public class PlayingField extends Sprite3D
     {
         private var _cards:Sprite;
         private var _juggler:Juggler;
@@ -30,7 +32,7 @@ package
             addChild(_cards);
             
             for (var i:int=0; i<_cards.numChildren; ++i)
-                dealCard(_cards.getChildAt(i) as Card, i * 0.05);
+                dealCard(_cards.getChildAt(i) as Card, i * 0.075);
             
             _selectedCards  = [];
             _numTurnedCards = 0;
@@ -44,7 +46,7 @@ package
             {
                 var card:Card = _cards.getChildAt(i) as Card;
                 var onRemoved:Function = i < numCards - 1 ? null : complete;
-                removeCard(card, i * 0.05, onRemoved);
+                removeCard(card, i * 0.075, onRemoved);
             }
             
             function complete():void
@@ -155,36 +157,43 @@ package
         private function dealCard(card:Card, delay:Number=0):void
         {
             card.alpha = 0;
+            card.z = -150;
             
             _juggler.tween(card, ANIM_TIME, {
+                z: 0,
                 alpha: 1.0,
-                delay: delay
+                delay: delay,
+                transition: Transitions.EASE_OUT
             });
         }
         
         private function removeCard(card:Card, delay:Number=0, onComplete:Function=null):void
         {
             card.alpha = 1.0;
+            card.z = 0;
             
             _juggler.tween(card, ANIM_TIME, {
+                z: -150,
                 alpha: 0.0,
                 delay: delay,
                 onComplete: onComplete,
-                onCompleteArgs: [card]
+                onCompleteArgs: [card],
+                transition: Transitions.EASE_IN
             });
         }
         
         private function turnCard(card:Card, delay:Number=0, onComplete:Function=null):void
         {
-            card.scaleX = card.concealed ? -1 : 1;
+            card.rotationY = card.concealed ? Math.PI : 0;
             card.concealed = !card.concealed;
             
             _juggler.removeTweens(card);
             _juggler.tween(card, ANIM_TIME, { 
-                scaleX: card.scaleX * -1, 
+                rotationY: card.concealed ? Math.PI : 0,
                 delay: delay,
                 onComplete: onComplete,
-                onCompleteArgs: [card]
+                onCompleteArgs: [card],
+                transition: Transitions.EASE_IN_OUT
             });
         }
         

@@ -4,11 +4,12 @@ package
     
     import starling.display.Image;
     import starling.display.Sprite;
+    import starling.display.Sprite3D;
     import starling.display.Stage;
     import starling.events.Event;
     import starling.textures.Texture;
     
-    public class Card extends Sprite
+    public class Card extends Sprite3D
     {
         private var _front:Sprite;
         private var _back:Sprite;

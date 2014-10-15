@@ -1,9 +1,12 @@
 package
 {
+    import flash.geom.Point;
+    
     import starling.display.Quad;
     import starling.display.Sprite;
     import starling.events.EnterFrameEvent;
     import starling.events.Event;
+    import starling.events.Touch;
     import starling.events.TouchEvent;
     import starling.events.TouchPhase;
     
@@ -19,6 +22,7 @@ package
             addEventListener(Event.ADDED_TO_STAGE, init);
             addEventListener(Event.ENTER_FRAME, onEnterFrame);
             addEventListener(Event.COMPLETE, onComplete);
+            addEventListener(TouchEvent.TOUCH, onTouch);
         }
         
         private function init():void
@@ -32,6 +36,7 @@ package
             _playingField = new PlayingField();
             _playingField.x = width / 2;
             _playingField.y = height / 2;
+            _playingField.rotationX = -0.6;
             addChild(_playingField);
             
             startGame();
@@ -45,6 +50,18 @@ package
         }
         
         // event handlers
+        
+        private function onTouch(event:TouchEvent):void
+        {
+            var touch:Touch = event.getTouch(this, TouchPhase.MOVED);
+            
+            if (_playingField && event.shiftKey && touch)
+            {
+                var delta:Point = touch.getMovement(this);
+                _playingField.rotationX += delta.y * 0.01;
+                _playingField.rotationY -= delta.x * 0.01;
+            }
+        }
         
         private function onStartTouch(event:TouchEvent):void
         {
