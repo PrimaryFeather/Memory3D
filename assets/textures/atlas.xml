@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:48c9618954104e70c3123a28fc9772c4:ac434b85fabaef67780eb73bc76c1385:cde709370900f12288f3449eded86f07$ -->
+<TextureAtlas imagePath="atlas.png">
+    <SubTexture name="card-back" x="1" y="1" width="128" height="128"/>
+    <SubTexture name="card-front" x="1" y="130" width="128" height="128"/>
+    <SubTexture name="icon-00" x="130" y="1" width="128" height="122" frameX="0" frameY="-3" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-01" x="364" y="259" width="128" height="80" frameX="0" frameY="-24" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-02" x="388" y="1" width="108" height="128" frameX="-10" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-03" x="1" y="259" rotated="true" width="127" height="128" frameX="0" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-04" x="388" y="130" rotated="true" width="106" height="128" frameX="0" frameY="-11" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-05" x="1" y="388" rotated="true" width="128" height="123" frameX="-2" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-06" x="130" y="388" rotated="true" width="128" height="123" frameX="-2" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-07" x="130" y="124" width="128" height="109" frameX="0" frameY="-9" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-08" x="129" y="259" rotated="true" width="127" height="128" frameX="0" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-09" x="259" y="1" width="128" height="127" frameX="0" frameY="0" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-10" x="259" y="129" width="128" height="108" frameX="0" frameY="-10" frameWidth="128" frameHeight="128"/>
+    <SubTexture name="icon-11" x="257" y="259" rotated="true" width="106" height="128" frameX="0" frameY="-11" frameWidth="128" frameHeight="128"/>
+</TextureAtlas>
