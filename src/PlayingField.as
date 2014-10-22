@@ -125,7 +125,7 @@ package
         
         private function onCardRevelead(card:Card):void
         {
-            if (_selectedCards.length == 2)
+            if (_selectedCards.indexOf(card) == 1)
             {
                 if (_selectedCards[0].id == _selectedCards[1].id)
                 {
