@@ -45,6 +45,7 @@ package
             _back = new Sprite();
             _back.addChild(cardBack);
             _back.alignPivot();
+            _back.scaleX = -1;
             
             addChild(_front);
             addChild(_back);
@@ -69,6 +70,16 @@ package
             }
         }
         
+        public function swapSides():void
+        {
+            var tmp:Sprite = _front;
+            _front = _back;
+            _back = tmp;
+
+            _front.scaleX *= -1;
+            _back.scaleX *= -1;
+        }
+
         public function get id():int { return _id; }
         
         public function get concealed():Boolean { return _concealed; }

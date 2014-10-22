@@ -184,12 +184,18 @@ package
         
         private function turnCard(card:Card, delay:Number=0, onComplete:Function=null):void
         {
-            card.rotationY = card.concealed ? Math.PI : 0;
+            // We reduce draw calls via a small trick: each *3d-transformed* card will cause
+            // a draw call. By swaping the up- and downside of the card before the animation and
+            // then making sure it ends with a 'rotationY' of zero, the card will only be
+            // 3d-transformed while it's being turned -- not when it lies flat.
+
+            card.swapSides();
+            card.rotationY = Math.PI;
             card.concealed = !card.concealed;
             
             _juggler.removeTweens(card);
             _juggler.tween(card, ANIM_TIME, { 
-                rotationY: card.concealed ? Math.PI : 0,
+                rotationY: 0,
                 delay: delay,
                 onComplete: onComplete,
                 onCompleteArgs: [card],
