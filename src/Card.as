@@ -55,9 +55,6 @@ package
         
         public function updateVisibility():void
         {
-            var stage:Stage = this.stage;
-            if (stage == null) return;
-            
             stage.getCameraPosition(this, sHelperPoint3D);
             
             _front.visible = sHelperPoint3D.z <  0;

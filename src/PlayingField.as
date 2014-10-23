@@ -26,7 +26,7 @@ package
         
         public function dealCards(numColumns:int, numRows:int):void
         {
-            removeChildren();
+            removeChildren(0, -1, true);
             
             _cards = createCardPlane(numColumns, numRows);
             addChild(_cards);
@@ -86,8 +86,6 @@ package
             
             var margin:Number = 20;
             var cardSize:Number = cards[0].width;
-            var offsetX:Number = (numColumns * cardSize + (numColumns - 1) * margin) / -2;
-            var offsetY:Number = (numRows    * cardSize + (numRows    - 1) * margin) / -2;
             var count:int = 0;
             
             for (var col:int=0; col<numColumns; ++col)
@@ -95,8 +93,8 @@ package
                 for (var row:int=0; row<numRows; ++row)
                 {
                     var card:Card = cards.pop();
-                    card.x = (cardSize + margin) * col + cardSize / 2 + offsetX;
-                    card.y = (cardSize + margin) * row + cardSize / 2 + offsetY;
+                    card.x = (cardSize + margin) * col;
+                    card.y = (cardSize + margin) * row;
                     card.useHandCursor = true;
                     card.touchGroup = true;
                     card.touchable = false;
@@ -105,6 +103,7 @@ package
                 }
             }
             
+            plane.alignPivot();
             return plane;
         }
         
