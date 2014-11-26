@@ -8,34 +8,21 @@
 #
 # =================================================================================================
 
-# Build and Release Folders
+# debug and release builds
 bin-debug/
 bin-release/
-starling/doc/html/
-tests/libs/
 
-# Project property files
+# Eclipse / Flash Builder
 .settings/
 .flexProperties
 .FlexUnitSettings
+.actionScriptProperties
 
 # IntelliJ IDEA
-.idea/
-*.iml
-*.ipr
 *.iws
-
-# Gradle CI
-.gradle/
-build/
-
-# Maven CI
-target/
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/dictionaries
 
 # OS X folders
 .DS_Store
-
-# FlashBuilder auto generated test runners
-FlexUnitApplication.as
-FlexUnitCompilerApplication.as
-.actionScriptProperties
