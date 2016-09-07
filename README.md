@@ -10,7 +10,7 @@ The repository contains three tags that you can use to look at different states 
 
 I also recorded a [video][] that explains the first two steps of this process.
 
-Note that this project requires the latest development version of Starling. "Sprite3D" will be part of the 1.6 release.
+This project requires at least Starling v1.6; it's also compatible with v2.0 and above.
 
 [Starling]: http://www.starling-framework.org
 [video]: http://vimeo.com/109564325
